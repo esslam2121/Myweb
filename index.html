@@ -32,18 +32,26 @@ body{
 }
 
 /* ---------- معرض الصور ---------- */
-.gallery{
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
+.gallery {
+  display: flex;
+  justify-content: center;
+  /* منع الصور من النزول تحت بعض */
+  flex-wrap: nowrap; 
+  /* إضافة سكرول جانبي لو الصور كتير */
+  overflow-x: auto; 
+  padding: 10px;
 }
 
-.gallery img{
-  width:120px;
-  height:120px;
-  margin:5px;
-  border-radius:10px;
-  object-fit:cover;
+.gallery img {
+  /* صغرنا العرض لـ 30% عشان 3 صور يجوا جنب بعض */
+  width: 30%; 
+  max-width: 120px;
+  aspect-ratio: 1/1; /* بيخلي الصورة مربعة بالضبط */
+  margin: 5px;
+  border-radius: 10px;
+  object-fit: cover;
+  /* بيمنع الصورة إنها تنضغط */
+  flex-shrink: 0; 
 }
 
 /* ---------- لوجو + بانر ---------- */
@@ -225,3 +233,4 @@ window.location.href=
 
 </body>
 </html>
+
