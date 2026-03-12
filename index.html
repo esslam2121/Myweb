@@ -2,9 +2,14 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+
+<!-- مهم للموبايل -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Eslam Mohamed</title>
 
 <style>
+
 /* ---------- عام ---------- */
 body{
   font-family: Arial, sans-serif;
@@ -15,12 +20,22 @@ body{
   margin:0;
 }
 
+/* ---------- الكارت ---------- */
 .card{
   background:#1e293b;
   padding:30px;
   border-radius:15px;
-  width:500px;
+  width:90%;
+  max-width:500px;
   margin:auto;
+  box-shadow:0 10px 30px rgba(0,0,0,0.4);
+}
+
+/* ---------- معرض الصور ---------- */
+.gallery{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
 }
 
 .gallery img{
@@ -36,7 +51,7 @@ body{
   position: relative;
   width: 100%;
   max-width: 500px;
-  margin: 20px auto;
+  margin: 20px auto 40px auto;
   border-radius: 15px;
   overflow: hidden;
 }
@@ -49,7 +64,7 @@ body{
 
 .logo-banner .logo{
   position: absolute;
-  bottom: -20px;
+  bottom: -40px;
   left: 50%;
   transform: translateX(-50%);
   width: 120px;
@@ -68,6 +83,11 @@ button{
   border-radius:8px;
   cursor:pointer;
   font-size:15px;
+  transition:0.3s;
+}
+
+button:hover{
+  transform:scale(1.05);
 }
 
 .whatsapp{background:#25D366;color:white;}
@@ -82,50 +102,45 @@ input,textarea{
   margin:10px 0;
   border-radius:6px;
   border:none;
+  font-size:14px;
 }
 
-/* ---------- تحسين الاستجابة للموبايل ---------- */
+/* ---------- الموبايل ---------- */
 @media (max-width: 550px) {
+
   .card{
-    width: 95%;
-    padding: 20px;
+    padding:20px;
   }
 
   .logo-banner .banner{
-    height: 120px;
+    height:120px;
   }
 
   .logo-banner .logo{
-    width: 100px;
-    height: 100px;
-    bottom: -20px;
+    width:100px;
+    height:100px;
   }
 
   .gallery img{
-    width: 90px;
-    height: 90px;
-    margin:4px;
+    width:90px;
+    height:90px;
   }
 
   button{
-    font-size: 14px;
-    padding: 8px 16px;
-    margin: 4px;
+    font-size:14px;
+    padding:8px 16px;
   }
 
-  input, textarea{
-    width: 95%;
-    padding: 8px;
-    margin: 6px 0;
-  }
 }
+
 </style>
 </head>
 
 <body>
 
 <div class="card">
-  <!-- قسم اللوجو + البانر -->
+
+  <!-- البانر واللوجو -->
   <div class="logo-banner">
     <img src="6.jpeg" class="banner">
     <img src="3.jpeg" class="logo">
@@ -136,42 +151,77 @@ input,textarea{
 
   <!-- معرض الصور -->
   <h3>My Photos</h3>
+
   <div class="gallery">
     <img src="1.jpeg">
-    <img src="logoo.jpeg" class="logo">
+    <img src="logoo.jpeg">
     <img src="2.jpeg">
   </div>
 
-  <!-- التواصل الاجتماعي -->
+  <!-- التواصل -->
   <h3>Contact Me</h3>
-  <button class="whatsapp" onclick="window.open('https://wa.me/201033883275')">WhatsApp</button>
-  <button class="instagram" onclick="window.open('https://www.instagram.com/esslam.mohammed?igsh=eWxrN3c4cDA1dWs0')">Instagram</button>
-  <button class="tiktok" onclick="window.open('https://www.tiktok.com/@eslam.mohammed.2024?_r=1&_t=ZS-94d1h08KmPd')">TikTok</button>
 
-  <!-- إرسال رسالة -->
+  <button class="whatsapp"
+  onclick="window.open('https://wa.me/201033883275')">
+  WhatsApp
+  </button>
+
+  <button class="instagram"
+  onclick="window.open('https://www.instagram.com/esslam.mohammed?igsh=eWxrN3c4cDA1dWs0')">
+  Instagram
+  </button>
+
+  <button class="tiktok"
+  onclick="window.open('https://www.tiktok.com/@eslam.mohammed.2024')">
+  TikTok
+  </button>
+
+  <!-- ارسال ايميل -->
   <h3>Send Me an Email</h3>
+
   <form id="contactForm">
-    <input type="text" id="name" placeholder="Your Name" required><br>
-    <input type="email" id="email" placeholder="Your Email" required><br>
-    <textarea id="message" placeholder="Write your message" required></textarea><br>
-    <button type="submit" class="email">Send Email</button>
+
+    <input type="text" id="name" placeholder="Your Name" required>
+
+    <input type="email" id="email" placeholder="Your Email" required>
+
+    <textarea id="message" placeholder="Write your message" required></textarea>
+
+    <br>
+
+    <button type="submit" class="email">
+    Send Email
+    </button>
+
   </form>
+
 </div>
 
 <script>
-document.getElementById("contactForm").addEventListener("submit", function(e){
-  e.preventDefault();
-  let name=document.getElementById("name").value;
-  let email=document.getElementById("email").value;
-  let message=document.getElementById("message").value;
 
-  let subject="Message from Website";
-  let body="Name: "+name+"\nEmail: "+email+"\nMessage: "+message;
+document.getElementById("contactForm")
+.addEventListener("submit", function(e){
 
-  window.location.href="mailto:mhmdaylam71@gmail.com?subject="+encodeURIComponent(subject)+"&body="+encodeURIComponent(body);
+e.preventDefault();
+
+let name=document.getElementById("name").value;
+let email=document.getElementById("email").value;
+let message=document.getElementById("message").value;
+
+let subject="Message from Website";
+
+let body="Name: "+name+
+"\nEmail: "+email+
+"\nMessage: "+message;
+
+window.location.href=
+"mailto:mhmdaylam71@gmail.com?subject="
++encodeURIComponent(subject)
++"&body="+encodeURIComponent(body);
+
 });
+
 </script>
 
 </body>
-
 </html>
