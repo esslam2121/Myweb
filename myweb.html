@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Eslam Mohamed</title>
+
+<style>
+/* ---------- عام ---------- */
+body{
+  font-family: Arial, sans-serif;
+  background:#0f172a;
+  color:white;
+  text-align:center;
+  padding:20px;
+  margin:0;
+}
+
+.card{
+  background:#1e293b;
+  padding:30px;
+  border-radius:15px;
+  width:500px;
+  margin:auto;
+}
+
+.gallery img{
+  width:120px;
+  height:120px;
+  margin:5px;
+  border-radius:10px;
+  object-fit:cover;
+}
+
+/* ---------- لوجو + بانر ---------- */
+.logo-banner{
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin: 20px auto;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.logo-banner .banner{
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.logo-banner .logo{
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 4px solid white;
+  object-fit: cover;
+  background:white;
+}
+
+/* ---------- أزرار التواصل ---------- */
+button{
+  padding:10px 20px;
+  margin:5px;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+  font-size:15px;
+}
+
+.whatsapp{background:#25D366;color:white;}
+.instagram{background:#E1306C;color:white;}
+.tiktok{background:#000000;color:white;}
+.email{background:#ef4444;color:white;}
+
+/* ---------- حقول الإدخال ---------- */
+input,textarea{
+  width:90%;
+  padding:10px;
+  margin:10px 0;
+  border-radius:6px;
+  border:none;
+}
+
+/* ---------- تحسين الاستجابة للموبايل ---------- */
+@media (max-width: 550px) {
+  .card{
+    width: 95%;
+    padding: 20px;
+  }
+
+  .logo-banner .banner{
+    height: 120px;
+  }
+
+  .logo-banner .logo{
+    width: 100px;
+    height: 100px;
+    bottom: -20px;
+  }
+
+  .gallery img{
+    width: 90px;
+    height: 90px;
+    margin:4px;
+  }
+
+  button{
+    font-size: 14px;
+    padding: 8px 16px;
+    margin: 4px;
+  }
+
+  input, textarea{
+    width: 95%;
+    padding: 8px;
+    margin: 6px 0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <!-- قسم اللوجو + البانر -->
+  <div class="logo-banner">
+    <img src="6.jpeg" class="banner">
+    <img src="3.jpeg" class="logo">
+  </div>
+
+  <h1>Eslam Mohamed</h1>
+  <p>Student at Faculty of Computers</p>
+
+  <!-- معرض الصور -->
+  <h3>My Photos</h3>
+  <div class="gallery">
+    <img src="1.jpeg">
+    <img src="logoo.jpeg" class="logo">
+    <img src="2.jpeg">
+  </div>
+
+  <!-- التواصل الاجتماعي -->
+  <h3>Contact Me</h3>
+  <button class="whatsapp" onclick="window.open('https://wa.me/201033883275')">WhatsApp</button>
+  <button class="instagram" onclick="window.open('https://www.instagram.com/esslam.mohammed?igsh=eWxrN3c4cDA1dWs0')">Instagram</button>
+  <button class="tiktok" onclick="window.open('https://www.tiktok.com/@eslam.mohammed.2024?_r=1&_t=ZS-94d1h08KmPd')">TikTok</button>
+
+  <!-- إرسال رسالة -->
+  <h3>Send Me an Email</h3>
+  <form id="contactForm">
+    <input type="text" id="name" placeholder="Your Name" required><br>
+    <input type="email" id="email" placeholder="Your Email" required><br>
+    <textarea id="message" placeholder="Write your message" required></textarea><br>
+    <button type="submit" class="email">Send Email</button>
+  </form>
+</div>
+
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(e){
+  e.preventDefault();
+  let name=document.getElementById("name").value;
+  let email=document.getElementById("email").value;
+  let message=document.getElementById("message").value;
+
+  let subject="Message from Website";
+  let body="Name: "+name+"\nEmail: "+email+"\nMessage: "+message;
+
+  window.location.href="mailto:mhmdaylam71@gmail.com?subject="+encodeURIComponent(subject)+"&body="+encodeURIComponent(body);
+});
+</script>
+
+</body>
+</html>
